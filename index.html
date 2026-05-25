@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VL SHOP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+<div class="logo">VL SHOP</div>
+<div style="display: flex; gap: 12px; align-items: center;">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+<i class="fa-solid fa-moon"></i>
+</button>
+<button class="menu-btn" id="openMenu">
+<div class="icon-menu"></div>
+</button>
+</div>
+</nav>
+
+<div class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<h2>VL SHOP</h2>
+<button class="close-btn" id="closeMenu">✕</button>
+</div>
+<div class="sidebar-links">
+<a href="#" onclick="showMainContent()">Home</a>
+<a href="#" onclick="showMainContent()">Products</a>
+<a href="#" onclick="showTrackingPage()">Track Order</a>
+<a href="admin.html" target="_blank">Admin</a>
+<a href="#">Contact</a>
+</div>
+</div>
+
+<div class="container" id="mainContainer">
+<div class="hero-video">
+<video autoplay muted loop playsinline>
+<source src="https://files.catbox.moe/zcvsqc.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="menu-wrapper" id="menuContainer"></div>
+
+<div class="search-filter">
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search Product">
+</div>
+<button class="sort-btn" id="sortBtn">
+<i class="fa-solid fa-arrow-down-a-z"></i>
+</button>
+</div>
+
+<h1 class="section-title">Result (<span id="resultCount">0</span>)</h1>
+<div class="products" id="productContainer"></div>
+
+<div class="tracking">
+<h1 class="section-title">Lacak Pesanan</h1>
+<div class="tracking-box">
+<input type="text" id="trackingInput" placeholder="Masukkan ID Pesanan">
+<button onclick="trackOrder()">Lacak</button>
+</div>
+<div class="track-result" id="trackResult"></div>
+</div>
+
+<div class="footer">
+<div>© 2026 VL SHOP Developer Store</div>
+<div class="dev-badge">
+<div class="dev-dot"></div>
+<span>Developer Mode Enabled</span>
+</div>
+</div>
+</div>
+
+<div class="modal" id="productModal">
+<div class="modal-box">
+<button class="modal-close" id="closeProductModal">✕</button>
+<div class="modal-product">
+<img id="modalProductImage" src="">
+<div>
+<h2 id="modalProductName"></h2>
+<p>Select Product Variant</p>
+</div>
+</div>
+<div class="deskripsi2-box" id="modalProductDesc2" style="display:none">
+<div id="modalProductDesc2Text"></div>
+</div>
+<div class="variant-buttons" id="variantButtons"></div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

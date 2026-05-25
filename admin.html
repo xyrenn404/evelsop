@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VL SHOP - Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="admin-style.css">
+</head>
+<body class="admin-body">
+
+<div id="loginOverlay" class="login-overlay">
+<div class="login-box">
+<h2>Admin Login</h2>
+<input type="text" id="username" placeholder="GitHub Username">
+<input type="password" id="password" placeholder="Nama Repository">
+<input type="password" id="githubToken" placeholder="GitHub Token">
+<button class="login-btn" onclick="doLogin()">Login</button>
+</div>
+</div>
+
+<div id="adminPanel" style="display:none">
+<div class="admin-container">
+<div class="header">
+<div class="logo">VL SHOP - Admin Panel</div>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<div class="stats">
+<div class="stat-card"><h3>Total Pesanan</h3><div class="number" id="totalOrders">0</div></div>
+<div class="stat-card"><h3>Pending</h3><div class="number" id="totalPending">0</div></div>
+<div class="stat-card"><h3>Selesai</h3><div class="number" id="totalPaid">0</div></div>
+<div class="stat-card"><h3>Total Pendapatan</h3><div class="number" id="totalRevenue">Rp0</div></div>
+</div>
+
+<div class="filters">
+<button class="filter-btn active" data-filter="all" onclick="filterOrders('all')">Semua</button>
+<button class="filter-btn" data-filter="pending" onclick="filterOrders('pending')">Pending</button>
+<button class="filter-btn" data-filter="paid" onclick="filterOrders('paid')">Selesai</button>
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Cari invoice, produk, atau WA..." oninput="searchOrders()">
+</div>
+</div>
+
+<div class="orders-table">
+<table>
+<thead>
+<tr>
+<th>Invoice</th>
+<th>Produk</th>
+<th>Total</th>
+<th>WhatsApp</th>
+<th>Tanggal</th>
+<th>Status</th>
+<th>Aksi</th>
+</tr>
+</thead>
+<tbody id="ordersTableBody">
+</tbody>
+</table>
+</div>
+
+<div class="admin-section" style="margin-top: 40px;">
+    <h2 style="margin-bottom: 20px;">Manage Products</h2>
+    
+    <div style="background: rgba(15,15,15,.88); border-radius: 24px; padding: 24px; border: 1px solid rgba(255,255,255,.08); margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+            <h3 style="margin:0">Add New Product</h3>
+            <button disabled style="padding: 8px 16px; background: #2a2a2a; border: none; border-radius: 10px; color: #666; cursor: not-allowed; font-size: 12px;">
+                <i class="fa-brands fa-github"></i> GitHub Auto
+            </button>
+        </div>
+        
+        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+            <button id="modeVarianBtn" onclick="setProductMode('varian')" style="flex:1; padding: 12px; background: white; color: black; border: none; border-radius: 12px; font-weight: 700; cursor: pointer;">Mode Varian</button>
+            <button id="modeDeskripsiBtn" onclick="setProductMode('deskripsi2')" style="flex:1; padding: 12px; background: #2a2a2a; color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer;">Mode Deskripsi2 + URL</button>
+        </div>
+        
+        <input type="text" id="newProdukmenu" class="admin-input" placeholder="Produkmenu (contoh: Bot WhatsApp)">
+        <input type="text" id="newNamaproduk" class="admin-input" placeholder="Nama Produk">
+        <textarea id="newDeskripsi" class="admin-input" rows="3" placeholder="Deskripsi"></textarea>
+        <input type="text" id="newHarga" class="admin-input" placeholder="Harga (contoh: Mulai Rp 5.000 atau Rp 30.000)">
+        <input type="text" id="newGambar" class="admin-input" placeholder="URL Gambar">
+        
+        <div id="varianModeContainer">
+            <h4 style="margin: 15px 0 10px 0;">Variants</h4>
+            <div id="variantList">
+                <div class="variant-item" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" placeholder="Nama varian (contoh: 30Days)" class="variant-name" style="flex:1; padding: 10px; background:#1d1d1d; border:none; border-radius:10px; color:white;">
+                    <input type="number" placeholder="Harga (contoh: 5000)" class="variant-price" style="flex:1; padding: 10px; background:#1d1d1d; border:none; border-radius:10px; color:white;">
+                    <button type="button" onclick="removeVariant(this)" style="background:#ff4444; border:none; border-radius:10px; color:white; padding:0 12px; cursor:pointer;">✕</button>
+                </div>
+            </div>
+            <button type="button" onclick="addVariantField()" style="padding: 8px 16px; background:#2a2a2a; border:none; border-radius:10px; color:white; cursor:pointer;">+ Add Variant</button>
+        </div>
+        
+        <div id="deskripsi2ModeContainer" style="display: none;">
+            <h4 style="margin: 15px 0 10px 0;">Deskripsi2 & URL</h4>
+            <textarea id="newDeskripsi2" class="admin-input" rows="4" placeholder="Deskripsi2 (pakai \n untuk enter)"></textarea>
+            <input type="text" id="newUrl" class="admin-input" placeholder="URL WhatsApp (contoh: https://wa.me/6281234567890?text=...)">
+        </div>
+        
+        <button id="addProductBtn" onclick="addProduct()" style="width:100%; margin-top: 20px; padding: 14px; background: white; color: black; border: none; border-radius: 16px; font-weight: 800; cursor: pointer;">Add Product</button>
+        <div id="addProductStatus" style="margin-top: 15px; font-size: 13px;"></div>
+    </div>
+    
+    <div style="background: rgba(15,15,15,.88); border-radius: 24px; padding: 24px; border: 1px solid rgba(255,255,255,.08);">
+        <h3 style="margin-bottom: 20px;">Delete Product</h3>
+        <input type="text" id="searchProductDelete" class="admin-input" placeholder="Cari produk..." oninput="filterProductList()">
+        <div id="productListContainer" style="max-height: 400px; overflow-y: auto; margin-top: 15px;"></div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<script src="admin-script.js"></script>
+</body>
+</html>

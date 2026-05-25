@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice - VL SHOP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+.invoice-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.invoice-card {
+    background: #101010;
+    border-radius: 32px;
+    border: 1px solid rgba(255,255,255,.1);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,.5);
+}
+.invoice-header {
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    padding: 30px 24px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.invoice-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.invoice-header p {
+    color: #888;
+    margin-top: 8px;
+}
+.invoice-body {
+    padding: 24px;
+}
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: rgba(255,255,255,.1);
+    z-index: 0;
+}
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background: #1d1d1d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    font-size: 20px;
+}
+.step.active .step-icon {
+    background: #4caf50;
+}
+.step-label {
+    font-size: 11px;
+    color: #888;
+}
+.step.active .step-label {
+    color: #4caf50;
+}
+.info-card {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+.info-row.total {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(255,152,0,.15);
+    color: #ffb74d;
+    border: 1px solid rgba(255,152,0,.2);
+}
+.copy-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: .2s;
+}
+.copy-btn:hover {
+    background: #3a3a3a;
+}
+.btn-wa {
+    width: 100%;
+    padding: 14px;
+    background: #25D366;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+.btn-wa:hover {
+    opacity: 0.9;
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #666;
+    font-size: 12px;
+}
+@media(max-width:700px){
+    body{padding:14px;}
+    .invoice-header{padding:24px;}
+    .invoice-header h1{font-size:24px;}
+    .step-icon{width:40px;height:40px;font-size:16px;}
+}
+</style>
+</head>
+<body>
+<div class="invoice-container">
+    <div class="invoice-card">
+        <div class="invoice-header">
+            <h1>VL SHOP</h1>
+            <p>Invoice Pembayaran</p>
+        </div>
+        <div class="invoice-body">
+            <div class="progress-steps">
+                <div class="step active">
+                    <div class="step-icon"><i class="fa-solid fa-credit-card"></i></div>
+                    <div class="step-label">Bayar</div>
+                </div>
+                <div class="step active">
+                    <div class="step-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="step-label">Proses</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="step-label">Selesai</div>
+                </div>
+            </div>
+
+            <div id="orderInfo" class="info-card">
+                <div class="info-row"><span>Invoice</span><span id="invoiceNumber">-</span></div>
+                <div class="info-row"><span>Produk</span><span id="productName">-</span></div>
+                <div class="info-row"><span>Total</span><span id="totalAmount">-</span></div>
+                <div class="info-row"><span>WhatsApp</span><span id="customerWA">-</span></div>
+                <div class="info-row"><span>Tanggal</span><span id="orderDate">-</span></div>
+                <div class="info-row"><span>Status</span><span id="orderStatus" class="status-badge">-</span></div>
+            </div>
+
+            <button class="copy-btn" onclick="copyInvoice()">
+                <i class="fa-regular fa-copy"></i> Salin Invoice
+            </button>
+
+            <a href="#" id="waLink" class="btn-wa" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Hubungi Admin
+            </a>
+        </div>
+        <div class="footer">
+            © 2026 VL SHOP Developer Store
+        </div>
+    </div>
+</div>
+
+<script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    function loadOrder() {
+        const invoice = getQueryParam('invoice');
+        if (!invoice) {
+            document.getElementById('invoiceNumber').innerText = 'Not Found';
+            return;
+        }
+
+        const orders = JSON.parse(localStorage.getItem('vlshop_orders') || '[]');
+        const order = orders.find(o => o.invoice === invoice);
+
+        if (!order) {
+            document.getElementById('invoiceNumber').innerText = 'Order Not Found';
+            return;
+        }
+
+        document.getElementById('invoiceNumber').innerHTML = `<strong>${order.invoice}</strong>`;
+        document.getElementById('productName').innerText = order.productName;
+        document.getElementById('totalAmount').innerText = `Rp${order.total.toLocaleString('id-ID')}`;
+        document.getElementById('customerWA').innerText = order.customerWhatsapp || '-';
+        document.getElementById('orderDate').innerText = order.date;
+        document.getElementById('orderStatus').innerText = order.status === 'pending' ? 'Pending' : 'Selesai';
+        
+        const waLink = document.getElementById('waLink');
+        if (order.customerWhatsapp) {
+            waLink.href = `https://wa.me/${order.customerWhatsapp}?text=Halo%20Admin%2C%20saya%20mau%20tanya%20pesanan%20dengan%20invoice%20${order.invoice}`;
+        }
+    }
+
+    function copyInvoice() {
+        const invoice = document.getElementById('invoiceNumber').innerText;
+        const product = document.getElementById('productName').innerText;
+        const total = document.getElementById('totalAmount').innerText;
+        const text = `Invoice: ${invoice}\nProduk: ${product}\nTotal: ${total}\nStatus: Pending`;
+        navigator.clipboard.writeText(text);
+        alert('Invoice berhasil disalin!');
+    }
+
+    loadOrder();
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+[
+  {
+    "produkmenu": "Bot WhatsApp",
+    "namaproduk": "Sewa Bot WhatsApp",
+    "deskripsi": "Layanan sewa bot WhatsApp premium dengan fitur lengkap, fast response, stabil 24 jam dan support update terbaru.",
+    "harga": "Mulai Rp 5.000",
+    "varian": [
+      { "nama": "30Days", "harga": 5000 },
+      { "nama": "60Days", "harga": 10000 },
+      { "nama": "90Days", "harga": 15000 }
+    ],
+    "gambar": "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "produkmenu": "Bot WhatsApp",
+    "namaproduk": "Premium Bot WhatsApp",
+    "deskripsi": "Akses premium bot WhatsApp dengan fitur eksklusif, limit lebih besar dan performa lebih cepat untuk kebutuhan harian.",
+    "harga": "Mulai Rp 2.000",
+    "varian": [
+      { "nama": "30Days", "harga": 2000 },
+      { "nama": "60Days", "harga": 7000 },
+      { "nama": "90Days", "harga": 12000 }
+    ],
+    "gambar": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "produkmenu": "Bot WhatsApp",
+    "namaproduk": "Script Bot WhatsApp Premium",
+    "deskripsi": "Script bot WhatsApp premium modern dengan fitur lengkap, anti delay, pairing code dan tampilan developer aesthetic.",
+    "harga": "Rp 30.000",
+    "deskripsi2": "✅ Script lengkap\n✅ Pairing code ready\n✅ Anti delay\n✅ Mudah diinstall\n✅ Free update 3x",
+    "gambar": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://wa.me/6281234567890?text=Saya%20mau%20beli%20Script%20Bot%20WhatsApp%20Premium"
+  },
+  {
+    "produkmenu": "Bot WhatsApp",
+    "namaproduk": "Jasa Rename Script",
+    "deskripsi": "Jasa rename script bot WhatsApp mulai dari ubah nama bot, watermark, owner, tampilan menu hingga branding full developer style.",
+    "harga": "Mulai Rp 3.000",
+    "varian": [
+      { "nama": "Rename Basic", "harga": 3000 },
+      { "nama": "Rename Full", "harga": 7000 },
+      { "nama": "Rename + Rapihin", "harga": 12000 }
+    ],
+    "gambar": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "produkmenu": "Bot WhatsApp",
+    "namaproduk": "Jasa Fix Error Bot",
+    "deskripsi": "Jasa perbaikan error bot WhatsApp seperti module error, pairing gagal, command rusak, bug plugin dan optimasi performa bot.",
+    "harga": "Mulai Rp 5.000",
+    "varian": [
+      { "nama": "Fix Ringan", "harga": 5000 },
+      { "nama": "Fix Sedang", "harga": 10000 },
+      { "nama": "Fix Berat", "harga": 20000 }
+    ],
+    "gambar": "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "produkmenu": "Editing",
+    "namaproduk": "Jasa Edit Alight Motion",
+    "deskripsi": "Jasa edit video Alight Motion dengan hasil smooth, aesthetic, kualitas HD dan export cepat sesuai request.",
+    "harga": "Rp 10.000",
+    "deskripsi2": "✅ Hasil eksport HD\n✅ Revisi 2x\n✅ Cepat pengerjaan\n✅ Bebas request konsep\n✅ Include efek premium",
+    "gambar": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://wa.me/6281234567890?text=Saya%20mau%20order%20Jasa%20Edit%20Alight%20Motion"
+  },
+  {
+    "produkmenu": "Editing",
+    "namaproduk": "Jasa Edit CapCut",
+    "deskripsi": "Jasa edit video CapCut profesional untuk konten TikTok, Instagram Reels, dan YouTube Shorts.",
+    "harga": "Rp 15.000",
+    "deskripsi2": "✅ Template premium\n✅ Transisi keren\n✅ Efek aesthetic\n✅ Output 60fps\n✅ Support semua format",
+    "gambar": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d6?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://wa.me/6281234567890?text=Saya%20mau%20order%20Jasa%20Edit%20CapCut"
+  },
+  {
+    "produkmenu": "Editing",
+    "namaproduk": "Jasa Edit Photoshop",
+    "deskripsi": "Jasa editing foto profesional menggunakan Photoshop untuk berbagai keperluan.",
+    "harga": "Rp 20.000",
+    "deskripsi2": "✅ Background removal\n✅ Color grading\n✅ Retouching\n✅ Manipulasi foto\n✅ Hasil cetak ready",
+    "gambar": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://wa.me/6281234567890?text=Saya%20mau%20order%20Jasa%20Edit%20Photoshop"
+  }
+]
